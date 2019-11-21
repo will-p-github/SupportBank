@@ -4,10 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+
+import static training.supportbank.Main.LOGGER;
 
 public class FileHandler {
 
@@ -17,9 +18,12 @@ public class FileHandler {
     public static void readFile(String filepath) throws IOException {
 
         String row;
+
+        LOGGER.info("initialising Buffered Reader");
         BufferedReader csvReader = new BufferedReader(new FileReader(filepath));
 
         csvReader.readLine();
+        LOGGER.info("Reading line-by-line");
 
         while ((row = csvReader.readLine()) != null) {
             String[] data = row.split(",");

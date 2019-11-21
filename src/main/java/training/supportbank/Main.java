@@ -7,11 +7,13 @@ import java.io.IOException;
 
 public class Main {
 
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
 
     public static void main(String args[]) throws IOException {
 
+        LOGGER.info("Program Starting Up.");
         FileHandler.readFile("DodgyTransactions2015.csv");
+        LOGGER.info("File Loaded Successfully, Waiting for User Input.");
         UserInput.waitForInput();
 
     }
