@@ -1,8 +1,19 @@
 package training.supportbank;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.io.IOException;
+
 public class Main {
-    public static void main(String args[]) {
-        // Your code here!
-        System.out.println("Test!");
+
+    private static final Logger LOGGER = LogManager.getLogger();
+
+    public static void main(String args[]) throws IOException {
+
+        FileHandler.readFile("DodgyTransactions2015.csv");
+        UserInput.waitForInput();
+
     }
+
 }
